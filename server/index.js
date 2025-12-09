@@ -14,6 +14,10 @@ app.use(cors({
 
 dotenv.config();
 
+app.get("/", (req, res) => {
+    req.send("hay")
+}
+
 app.get("/dl-s-:plat/:type/:id", async (req, res) => {
     try{
         const platform = req.params.plat;
