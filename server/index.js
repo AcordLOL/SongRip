@@ -16,7 +16,7 @@ dotenv.config();
 
 app.get("/", (req, res) => {
     req.send("hay")
-}
+});
 
 app.get("/dl-s-:plat/:type/:id", async (req, res) => {
     try{
