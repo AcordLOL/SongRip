@@ -41,3 +41,5 @@ app.post("/download/:song_name", async (req, res) => {
 app.listen(process.env.PORT, () => {
     console.log(`listening at: https://localhost:${process.env.PORT}`)
 })
+
+exports default app
