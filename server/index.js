@@ -9,7 +9,7 @@ const port = process.env.PORT || 8010;
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-    origin: ["https://song-rip.vercel.app", `http://localhost:${port}`]
+    origin: ["https://song-rip.vercel.app", `http://localhost:5173`]
 }))
 
 app.get("/", (req, res) => {

@@ -2,14 +2,14 @@
   "name": "songrip-server",
   "version": "1.0.0",
   "description": "Server of SongRip lol.",
-  "main": "index.js",
   "license": "ISC",
   "author": "AcordLOL",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "dependencies": {
     "axios": "^1.13.2",

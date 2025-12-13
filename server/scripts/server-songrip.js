@@ -1,12 +1,12 @@
 import axios from "axios";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 import search from 'yt-search';
 import { promisify } from 'node:util';
 import { exec } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// dotenv.config({ path: ['.env.local', '.env'] });
+dotenv.config();
 const execute = promisify(exec)
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,9 +15,6 @@ const __dirname = dirname(__filename)
 export default class ServerSongRip {
     
     static async getAccess() {
-        console.log(process.env.SP_CLIENT);
-        console.log(process.env.SP_SECRET);
-
         const auth_token = await Buffer.from(`${process.env.SP_CLIENT}:${process.env.SP_SECRET}`, 'utf-8').toString('base64')
         const client = await axios.post("https://accounts.spotify.com/api/token", 
             {
@@ -91,14 +88,14 @@ export default class ServerSongRip {
                 yt_dlp: "./yt-dlp",
             }
             
-            for (const key of Object.keys(paths)) {
-                paths[key] = await join(__dirname, paths[key]);
-            }
+            // for (const key of Object.keys(paths)) {
+            //     paths[key] = await join(__dirname, paths[key]);
+            // }
                 
             const command = `yt-dlp.exe -x --audio-format mp3 --embed-thumbnail --js-runtimes node --ffmpeg-location "${paths.ffmpeg}" --add-metadata -o "${paths.download}/${song.name}.%(ext)s" "${results.all[0].url}"`
             
             await execute(command, { cwd: paths.yt_dlp });
-            return(join(__dirname, paths.download, `${song.name}.mp3`))
+            console.log(await join(__dirname, paths.download, `${song.name}.mp3`))
         }catch (error) {
             console.error('Error:', error);
         }

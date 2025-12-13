@@ -1,5 +1,8 @@
 import axios from "axios";
 import JSZIP from "jszip";
+
+// const server_url = 'https://song-rip-server.vercel.app'
+const server_url = 'http://localhost:8010'
 export default class SongRip {
 
     static Messages = Object.freeze({
@@ -29,13 +32,15 @@ export default class SongRip {
 
     static async uploadSongs(url, type, callback) {
         const url_id = url.split(`${type}/`)[1].split("?")[0];
-        const response = await axios.get(`https://song-rip-server.vercel.app/getsongs/${type}/${url_id}`)
+
+        console.log(server_url)
+        const response = await axios.get(`${server_url}/getsongs/${type}/${url_id}`);
 
         callback(response)
     }
 
     static async getFile(song) {
-        const response = await axios.post(`https://song-rip-server.vercel.app/download/${song.name}`, song, {
+        const response = await axios.post(`${server_url}/download/${song.name}`, song, {
             responseType: 'blob'
         })
 
