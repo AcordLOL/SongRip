@@ -1,25 +1,17 @@
 {
   "name": "songrip-server",
   "version": "1.0.0",
-  "description": "Server of songrip lol",
+  "description": "Server of SongRip lol.",
   "main": "index.js",
+  "license": "ISC",
+  "author": "AcordLOL",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .",
-    "dev": "nodemon ."
+    "start": "node index",
+    "dev": "nodemon index"
   },
-  "keywords": [],
-  "author": "AcordLOL",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "axios": "^1.13.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "yt-search": "^2.13.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
+    "express": "^5.2.1"
   }
 }

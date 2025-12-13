@@ -3,3 +3,4 @@ server/downloads/
 node_modules/
 yt-dlp/
 ffmpeg/
+old/
