@@ -32,8 +32,7 @@ export default class SongRip {
 
     static async uploadSongs(url, type, callback) {
         const url_id = url.split(`${type}/`)[1].split("?")[0];
-        const platform = "spotify"
-        const response = await axios.get(`http://localhost:9293/dl-s-${platform}/${type}/${url_id}`)
+        const response = await axios.get(`https://song-rip-server.vercel.app/getsongs/${type}/${url_id}`)
 
         callback(response)
     }
