@@ -2,10 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors"
 
+import SSR from "./scripts/server-songrip.js"
+
 dotenv.config();
 
 const app = express();
-const port = 8010
+const port = process.env.PORT || 8010;
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
@@ -22,12 +24,23 @@ app.get("/getsongs/:type/:id", async(req, res) => {
         const type = req.params.type;
         const id = req.params.id;
         
-        res.send('sup');
+        res.send(await SSR.getSongs(id, type));
     }catch (e) {
-        console.log('Error:', e);
-        res.status(500).send('Internal Server Error when getting songs');
+        console.error('Error in getting songs:', e)
+        res.status(500).send('Internal Server Error When Getting Songs');
+    }
+});
+
+app.post("/download/:song_name", async(req, res) => {
+    try{
+        res.sendFile(await SSR.downloadFile(req.body))
+    }catch (e) {
+        console.error('Error in downloading:', e)
+        res.status(500).send('Internal Server Error When Downloading Songs')
     }
 })
+
+app.post()
 
 app.listen(port, () => {
     `Server started on port ${port}`
