@@ -24,7 +24,8 @@ app.get("/getsongs/:type/:id", async(req, res) => {
         const type = req.params.type;
         const id = req.params.id;
         
-        res.send(await SSR.getSongs(id, type));
+        // res.send(await SSR.getSongs(id, type));
+        res.send(`type: ${type}, id: ${id}}`)
     }catch (e) {
         console.error('Error in getting songs:', e)
         res.status(500).send('Internal Server Error When Getting Songs');
