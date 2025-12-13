@@ -95,7 +95,7 @@ export default class ServerSongRip {
             const command = `yt-dlp.exe -x --audio-format mp3 --embed-thumbnail --js-runtimes node --ffmpeg-location "${paths.ffmpeg}" --add-metadata -o "${paths.download}/${song.name}.%(ext)s" "${results.all[0].url}"`
             
             await execute(command, { cwd: paths.yt_dlp });
-            console.log(await join(__dirname, paths.download, `${song.name}.mp3`))
+            return (await join(__dirname, paths.download, `${song.name}.mp3`))
         }catch (error) {
             console.error('Error:', error);
         }
