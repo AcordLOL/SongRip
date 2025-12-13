@@ -2,7 +2,7 @@ import express from "express";
 // import dotenv from "dotenv";
 import cors from "cors"
 
-import SSR from "./scripts/server-songrip.js"
+// import SSR from "./scripts/server-songrip.js"
 
 // dotenv.config();
 
@@ -34,7 +34,8 @@ app.get("/getsongs/:type/:id", async(req, res) => {
 
 app.post("/download/:song_name", async(req, res) => {
     try{
-        res.sendFile(await SSR.downloadFile(req.body))
+        // res.sendFile(await SSR.downloadFile(req.body))
+        res.send('this is supposed to be a file..')
     }catch (e) {
         console.error('Error in downloading:', e)
         res.status(500).send('Internal Server Error When Downloading Songs')
