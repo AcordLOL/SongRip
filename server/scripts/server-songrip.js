@@ -6,7 +6,7 @@ import { exec } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-dotenv.config();
+dotenv.config({ path: ['.env.local', '.env'] });
 const execute = promisify(exec)
 
 const __filename = fileURLToPath(import.meta.url);
