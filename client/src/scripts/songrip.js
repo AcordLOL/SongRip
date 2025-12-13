@@ -33,9 +33,9 @@ export default class SongRip {
 
         callback(response)
     }
-    
+
     static async getFile(song) {
-        const response = await axios.post(`https://song-rip-server.vercel.app/${song.name}`, song, {
+        const response = await axios.post(`https://song-rip-server.vercel.app/download/${song.name}`, song, {
             responseType: 'blob'
         })
 
