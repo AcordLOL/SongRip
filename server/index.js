@@ -4,7 +4,7 @@ import cors from "cors"
 
 import SSR from "./scripts/server-songrip.js"
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8010;
