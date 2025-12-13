@@ -1,8 +1,5 @@
 import axios from "axios";
 import JSZIP from "jszip";
-
-let i = 0
-
 export default class SongRip {
 
     static Messages = Object.freeze({
@@ -36,8 +33,9 @@ export default class SongRip {
 
         callback(response)
     }
-static async getFile(song) {
-        const response = await axios.post(`http://localhost:9293/download/${song.name}`, song, {
+    
+    static async getFile(song) {
+        const response = await axios.post(`https://song-rip-server.vercel.app/${song.name}`, song, {
             responseType: 'blob'
         })
 
