@@ -15,6 +15,9 @@ const __dirname = dirname(__filename)
 export default class ServerSongRip {
     
     static async getAccess() {
+        console.log(process.env.SP_CLIENT);
+        console.log(process.env.SP_SECRET);
+
         const auth_token = await Buffer.from(`${process.env.SP_CLIENT}:${process.env.SP_SECRET}`, 'utf-8').toString('base64')
         const client = await axios.post("https://accounts.spotify.com/api/token", 
             {
