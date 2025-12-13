@@ -1,5 +1,5 @@
 import axios from "axios";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import search from 'yt-search';
 import { promisify } from 'node:util';
 import { exec } from "node:child_process";
