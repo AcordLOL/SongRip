@@ -1,12 +1,12 @@
 import axios from "axios";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import search from 'yt-search';
 import { promisify } from 'node:util';
 import { exec } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-dotenv.config();
+// dotenv.config();
 const execute = promisify(exec)
 
 const __filename = fileURLToPath(import.meta.url);
