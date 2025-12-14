@@ -1,8 +1,8 @@
 import axios from "axios";
 import JSZIP from "jszip";
 
-// const server_url = 'https://song-rip-server.vercel.app'
-const server_url = 'http://localhost:8010'
+const server_url = 'https://song-rip-server.vercel.app'
+// const server_url = 'http://localhost:8010'
 export default class SongRip {
 
     static Messages = Object.freeze({
